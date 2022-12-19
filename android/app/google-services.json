@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "805289658282",
+    "project_id": "leplanning-25a7f",
+    "storage_bucket": "leplanning-25a7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805289658282:android:c8678311d2a41d47d70dd3",
+        "android_client_info": {
+          "package_name": "com.le_planning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805289658282-l1innbie3qadknsqb46frssltonodioo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgtFFWgY7QjU_q-yvPtZaJwgUr_klc6ow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805289658282-l1innbie3qadknsqb46frssltonodioo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
