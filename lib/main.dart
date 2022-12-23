@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:le_planning/pages/home_page.dart';
 import 'authentication/auth_page.dart';
-import 'authentication/profile.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           } else if (!snapshot.hasData) {
             return const AuthPage();
           } else {
-            return const Profile();
+            return HomePage(user: snapshot.data!);
           }
         },
       ),
