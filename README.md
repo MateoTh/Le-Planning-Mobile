@@ -1,16 +1,4 @@
 # le_planning
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Projet en construction, mis en pause par manque de connaissances UX/UI.
+Le planning est un assistant d'organisation d'évènements. Permettant a ses utilisateurs de partager leurs disponibilités sur une période donnée afin de convenir rapidement des dates d'un voyage, une réunion, un repas.. 
