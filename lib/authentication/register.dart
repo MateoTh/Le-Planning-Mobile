@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:le_planning/shared/global_colors.dart';
+import 'package:le_planning/widgets/buttons.dart';
 
 import 'widgets/AssetLogoImage.dart';
 
@@ -44,49 +46,44 @@ class _RegisterState extends State<Register> {
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (login) =>
                     login != null && !EmailValidator.validate(login)
-                        ? 'Enter a valid email'
+                        ? "L'adresse Email n'est pas valide"
                         : null,
               ),
               TextFormField(
                   keyboardType: TextInputType.visiblePassword,
                   controller: passwordController,
                   obscureText: true,
-                  decoration: const InputDecoration(labelText: 'Password'),
+                  decoration: const InputDecoration(labelText: 'Mot de passe'),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (password) =>
                       password != null && password.length < 6
-                          ? 'Enter a password with more than 6 characters'
+                          ? "Le mot de passe doit contenir plus de 6 caractères"
                           : null),
               TextFormField(
                   controller: confirmPasswordController,
                   obscureText: true,
-                  decoration:
-                      const InputDecoration(labelText: 'Confirm Password'),
+                  decoration: const InputDecoration(
+                      labelText: 'Confirmer mot de passe'),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (validationPassword) =>
                       validationPassword != null &&
                               validationPassword != passwordController.text
-                          ? "The two passwords don't match"
+                          ? "Les deux mots de passes ne correspondent pas"
                           : null),
               const SizedBox(height: 50),
-              ElevatedButton(
-                onPressed: register,
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    minimumSize: const Size.fromHeight(50)),
-                child: const Text('Sign Up'),
+              SizedBox(
+                width: double.infinity,
+                child: Updated_OutlinedButton(
+                    texte: 'Inscription',
+                    couleur: globalColorRed,
+                    onClick: register),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 15),
-                child: RichText(
-                    text: TextSpan(text: '', children: [
-                  TextSpan(
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = widget.onclickedLogin,
-                      style: (const TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.bold)),
-                      text: 'Sign In')
-                ])),
+              SizedBox(
+                width: double.infinity,
+                child: Updated_FilledButton(
+                    texte: 'Connexion',
+                    couleur: globalColorRed,
+                    onClick: widget.onclickedLogin),
               ),
             ],
           ),

@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AuthService {
-  AuthService() {}
+  AuthService();
 
   Future logIn(BuildContext context, String login, String password) async {
     try {

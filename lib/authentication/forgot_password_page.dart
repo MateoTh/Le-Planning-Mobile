@@ -1,8 +1,7 @@
 import 'package:email_validator/email_validator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:le_planning/shared/global_colors.dart';
+import 'package:le_planning/widgets/buttons.dart';
 
 import 'auth_service.dart';
 import 'widgets/AssetLogoImage.dart';
@@ -41,26 +40,23 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (login) =>
                     login != null && !EmailValidator.validate(login)
-                        ? 'Enter a valid email'
+                        ? "L'adresse n'est pas valide"
                         : null,
               ),
               const SizedBox(height: 10),
               const Text(
-                'Recieve an email to reset your password.',
+                'Reçois un email pour réinitialiser ton mot de passe.',
                 style: TextStyle(color: Colors.grey),
               ),
               const Text(
-                '(Check your spams)',
+                '(Vérifie tes spams !)',
                 style: TextStyle(color: Colors.grey),
               ),
               const SizedBox(height: 50),
-              ElevatedButton(
-                onPressed: resetPassword,
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    minimumSize: const Size.fromHeight(50)),
-                child: const Text('Reset Password'),
-              ),
+              Updated_FilledButton(
+                  texte: 'Réinitialiser',
+                  couleur: globalColorRed,
+                  onClick: resetPassword),
             ],
           ),
         ),

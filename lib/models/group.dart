@@ -3,6 +3,7 @@ import 'package:le_planning/models/unavailabilities.dart';
 
 class Group {
   String uid;
+  String joinCode;
   String name = 'Name';
   String description = 'Description';
   String ownerUid = 'Uid';
@@ -11,8 +12,8 @@ class Group {
   List<String> users;
   List<Unavailability> unavailabilities;
 
-  Group(this.uid, this.name, this.description, this.ownerUid, this.startDate,
-      this.endDate, this.users, this.unavailabilities);
+  Group(this.uid, this.joinCode, this.name, this.description, this.ownerUid,
+      this.startDate, this.endDate, this.users, this.unavailabilities);
 
   factory Group.fromJson(Map<String, dynamic> json, String id) =>
       groupFromJson(json, id);
@@ -24,23 +25,28 @@ class Group {
 Group groupFromJson(Map<String, dynamic> json, String id) {
   return Group(
       id,
+      json["joinCode"] as String,
       json["name"] as String,
       json["description"] as String,
       json["ownerUid"] as String,
       json["startDate"].toDate() as DateTime,
       json["endDate"].toDate() as DateTime,
       json['users'].map<String>((i) => i as String).toList(),
-      List<Unavailability>.from(json["unavailabilities"] != null
-          ? json["unavailabilities"]
-                  .map((model) => Unavailability.fromJson(model, ''))
-              as List<Unavailability>
-          : []));
+      List<Unavailability>.from(
+          json["unavailabilities"] != null && json["unavailabilities"] != []
+              ? json["unavailabilities"]
+                      .map((model) => Unavailability.fromJson(model, ''))
+                  as List<Unavailability>
+              : []));
 }
 
 Map<String, dynamic> groupToJson(Group instance) => <String, dynamic>{
       'name': instance.name,
+      'joinCode': instance.joinCode,
       'description': instance.description,
       'startDate': instance.startDate,
       'endDate': instance.endDate,
-      'users': instance.users
+      'users': instance.users,
+      'ownerUid': instance.ownerUid,
+      'unavailabilities': instance.unavailabilities
     };

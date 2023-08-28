@@ -1,6 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:le_planning/shared/global_colors.dart';
+import 'package:le_planning/widgets/buttons.dart';
 
 import 'auth_service.dart';
 import 'forgot_password_page.dart';
@@ -45,13 +46,13 @@ class LoginState extends State<Login> {
             TextField(
               controller: passwordController,
               obscureText: true,
-              decoration: const InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Mot de passe'),
             ),
             Container(
               margin: const EdgeInsets.only(top: 15),
               child: GestureDetector(
                 child: const Text(
-                  'Forgot password ?',
+                  'Mot de passe oublié ?',
                   style: TextStyle(
                       color: Colors.grey, fontWeight: FontWeight.bold),
                 ),
@@ -60,25 +61,18 @@ class LoginState extends State<Login> {
               ),
             ),
             const SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: logIn,
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  minimumSize: const Size.fromHeight(50)),
-              child: const Text('Sign In'),
+            SizedBox(
+              width: double.infinity,
+              child: Updated_FilledButton(
+                  texte: 'Connexion', couleur: globalColorRed, onClick: logIn),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 15),
-              child: RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = widget.onclickedRegister,
-                    style: (const TextStyle(
-                        color: Colors.grey, fontWeight: FontWeight.bold)),
-                    text: 'Sign Up')
-              ])),
-            ),
+            SizedBox(
+              width: double.infinity,
+              child: Updated_OutlinedButton(
+                  texte: 'Inscription',
+                  couleur: globalColorRed,
+                  onClick: widget.onclickedRegister),
+            )
           ],
         ),
       ),

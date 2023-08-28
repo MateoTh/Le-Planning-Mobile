@@ -1,6 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:le_planning/shared/global_colors.dart';
 
 import 'auth_service.dart';
 import 'widgets/profile_image_widget.dart';
@@ -18,11 +18,11 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       children: [
         ProfileImageWidget(
           imagePath:
-              'https://scontent-mrs2-2.xx.fbcdn.net/v/t1.18169-9/20840661_1916414815293981_3503828369660538789_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=ad2b24&_nc_ohc=NYBx8QPeLUYAX8PLVOX&tn=M4JQg3fVGVNIMlOS&_nc_ht=scontent-mrs2-2.xx&oh=00_AfDPq4lvXH4kL6foalx-laQ_jhBhia0bpuFzS8mmSNZbOA&oe=63C7E26C',
+              'https://preview.redd.it/7mcmlkums6z31.jpg?auto=webp&s=b7c7eff0cf6492b3820e28e4824e2e3fca82944d',
           onClicked: () => {},
         ),
         const SizedBox(height: 10),
@@ -40,15 +40,13 @@ class _ProfileState extends State<Profile> {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 onPressed: signOut,
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+                style:
+                    ElevatedButton.styleFrom(backgroundColor: globalColorRed),
                 child: const Text('Sign Out'),
               ),
             ),
           ],
         ),
-        LikedSkateList_GetUser("owned"),
-        const SizedBox(height: 20),
-        LikedSkateList_GetUser("liked"),
       ],
     );
   }
@@ -56,9 +54,5 @@ class _ProfileState extends State<Profile> {
   void signOut() {
     AuthService auth = AuthService();
     auth.logOut();
-  }
-
-  Widget LikedSkateList_GetUser(String typeList) {
-    return Container();
   }
 }

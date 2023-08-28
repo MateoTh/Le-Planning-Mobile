@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/global_colors.dart';
+
 class ProfileImageWidget extends StatelessWidget {
   final String imagePath;
   final VoidCallback onClicked;
@@ -14,7 +16,7 @@ class ProfileImageWidget extends StatelessWidget {
         child: Stack(
           children: [
             buildCircle(
-              Colors.black,
+              globalColorRed,
               const EdgeInsets.all(2),
               buildCircle(
                 Colors.white,
@@ -49,10 +51,16 @@ class ProfileImageWidget extends StatelessWidget {
 
   Widget buildEditIcon() {
     return buildCircle(
-        Colors.black,
+        globalColorRed,
         const EdgeInsets.all(2),
-        buildCircle(Colors.white, const EdgeInsets.all(5),
-            const Icon(Icons.edit, size: 20)));
+        buildCircle(
+            Colors.white,
+            const EdgeInsets.all(5),
+            Icon(
+              Icons.edit,
+              size: 20,
+              color: globalColorRed,
+            )));
   }
 
   Widget buildCircle(Color? color, EdgeInsets padding, Widget child) {
